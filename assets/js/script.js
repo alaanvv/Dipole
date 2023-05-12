@@ -32,7 +32,12 @@ const diameter = circle.right - circle.left
 const squareLength = diameter / Math.sqrt(2) - 100
 const gap = (diameter - squareLength) / 2
 
-const GRID_SIZE = 5
+let model = document.querySelector('.pack-model')
+const PACK_SIZE = model.clientWidth
+model.remove()
+
+let GRID_SIZE = Math.min(Math.floor(squareLength / (PACK_SIZE + 20)), 15)
+if (GRID_SIZE % 2 === 0) GRID_SIZE--
 const GRID_SQUARE_LENGTH = squareLength / GRID_SIZE
 
 for (let x = 0; x <= GRID_SIZE; x++) {
